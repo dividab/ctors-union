@@ -11,6 +11,8 @@ Define unions types via constructor functions
 
 ## How to install
 
+> NOTE: Typescript version >=3.7 is needed becuase of recursive type alias
+
 ```
 npm install ctors-union --save
 ```
