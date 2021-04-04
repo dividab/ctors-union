@@ -19,7 +19,10 @@
     "clean": "rm -rf lib",
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "verify": "yarn test-coverage",
+    "preversion": "yarn verify",
+    "postversion": "git push --tags && yarn publish --new-version $npm_package_version && git push --follow-tags && echo \"Successfully released version $npm_package_version!\""
   },
   "devDependencies": {
     "@types/jest": "^26.0.22",

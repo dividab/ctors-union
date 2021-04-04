@@ -97,6 +97,14 @@ This type takes a type `T` that is an object where each key is a string and each
 
 If you don't want to use the key `type` as the discriminator you can use `ctorsUnionWithTypeKey` instead of `ctorsUnion`.
 
+## How to publish
+
+```
+yarn version --patch
+yarn version --minor
+yarn version --major
+```
+
 [version-image]: https://img.shields.io/npm/v/ctors-union.svg?style=flat
 [version-url]: https://www.npmjs.com/package/ctors-union
 [build-image]: https://github.com/dividab/ctors-union/workflows/Build/badge.svg
