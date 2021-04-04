@@ -99,13 +99,13 @@ If you don't want to use the key `type` as the discriminator you can use `ctorsU
 
 [version-image]: https://img.shields.io/npm/v/ctors-union.svg?style=flat
 [version-url]: https://www.npmjs.com/package/ctors-union
-[build-image]: https://github.com/dividab/abstract-visuals/workflows/Build/badge.svg
-[build-url]: https://github.com/dividab/abstract-visuals/actions?query=workflow%3ABuild+branch%3Amaster
-[codecov-image]: https://codecov.io/gh/dividab/abstract-visuals/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/dividab/abstract-visuals
+[build-image]: https://github.com/dividab/ctors-union/workflows/Build/badge.svg
+[build-url]: https://github.com/dividab/ctors-union/actions?query=workflow%3ABuild+branch%3Amaster
+[codecov-image]: https://codecov.io/gh/dividab/ctors-union/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/dividab/ctors-union
 [prettier-image]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat
 [prettier-url]: https://github.com/prettier/prettier
 [types-image]: https://img.shields.io/npm/types/scrub-js.svg
 [types-url]: https://www.typescriptlang.org/
-[license-image]: https://img.shields.io/github/license/dividab/abstract-visuals.svg?style=flat
+[license-image]: https://img.shields.io/github/license/dividab/ctors-union.svg?style=flat
 [license-url]: https://opensource.org/licenses/MIT
