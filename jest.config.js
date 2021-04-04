@@ -6,5 +6,5 @@ module.exports = {
   testMatch: ["<rootDir>/src/**/*.test.{ts,tsx}"],
   collectCoverage: false,
   coverageDirectory: "<rootDir>/coverage/",
-  collectCoverageFrom: ["**/src/**/!(*.test).{ts,tsx}", "!(**/__tests__/**)"],
+  collectCoverageFrom: ["src/**/!(*.test).{ts,tsx}", "!(src/**/__tests__/**)", "!(src/**/__examples__/**)"],
 };

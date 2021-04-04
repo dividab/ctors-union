@@ -18,6 +18,7 @@
     "build": "tsc -p .",
     "clean": "rm -rf lib",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "prepare": "husky install"
   },
   "devDependencies": {
