@@ -3,7 +3,7 @@ type RawMap = { readonly [key: string]: RawFn };
 type RawFn = (...args: readonly unknown[]) => any;
 
 // These types are for the constructors map
-export type CtorsMap<T extends RawMap, TTypeKey extends string> = {
+type CtorsMap<T extends RawMap, TTypeKey extends string> = {
   readonly [P in keyof T]: CtorFn<P, T[P], TTypeKey>;
 };
 type CtorFn<TType, TCtorFn extends RawFn, TTypeKey extends string> = (
