@@ -71,3 +71,19 @@ export function update(action: Action): void {
   }
 }
 ```
+
+## How it works
+
+The goal of this library is to add as little "magic" as possible but still cut down the bolierplate and support currying in the constructor functions. To acheive this we use one function `ctorsUnion` and one type `CtorsUnion<T>`.
+
+### ctorsUnion
+
+This function takes an object where each key is a string and the value is a function that contstucts an object. It returns the same object with the constructor functions wrapped so they produce objects that include the `type` key. The value of the `type` key will be the name of the key on which the function is located.
+
+### CtorsUnion<T>
+
+This type takes a type `T` that is an object where each key is a string and each value is a function that constructs an object. It returns a type that is a union of the return type of the constructor functions.
+
+## Using different discriminator
+
+If you don't want to use the key `type` as the discriminator you can use `ctorsUnionWithTypeKey` instead of `ctorsUnion`.
