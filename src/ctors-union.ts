@@ -1,13 +1,12 @@
 // These types are only used to satisfy the constraints needed for ReturnType<T> and Parameters<T>
-export type RawMap = { readonly [key: string]: RawFn };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type RawFn = (...args: readonly unknown[]) => any;
+type RawMap = { readonly [key: string]: RawFn };
+type RawFn = (...args: readonly unknown[]) => any;
 
 // These types are for the constructors map
 export type CtorsMap<T extends RawMap, TTypeKey extends string> = {
   readonly [P in keyof T]: CtorFn<P, T[P], TTypeKey>;
 };
-export type CtorFn<TType, TCtorFn extends RawFn, TTypeKey extends string> = (
+type CtorFn<TType, TCtorFn extends RawFn, TTypeKey extends string> = (
   ...args: Parameters<TCtorFn>
 ) => ReturnType<TCtorFn> extends RawFn
   ? CtorFn<TType, ReturnType<TCtorFn>, TTypeKey>
@@ -15,7 +14,7 @@ export type CtorFn<TType, TCtorFn extends RawFn, TTypeKey extends string> = (
 
 // This type will create the union type from the constructors map
 export type CtorsUnion<A extends RawMap> = FinalReturn<ReturnType<A[keyof A]>>;
-export type FinalReturn<T> = T extends RawFn ? FinalReturn<ReturnType<T>> : T;
+type FinalReturn<T> = T extends RawFn ? FinalReturn<ReturnType<T>> : T;
 
 /**
  * To support currying, recursively wrap constructor functions as long as they
