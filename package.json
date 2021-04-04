@@ -1,6 +1,6 @@
 {
   "name": "ctors-union",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:dividab/ctors-union.git",
