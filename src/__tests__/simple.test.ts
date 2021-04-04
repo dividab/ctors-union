@@ -1,6 +1,6 @@
 import { ctorsUnion } from "../ctors-union";
 
-describe("PdfExporter", () => {
+describe("Simple", () => {
   it("should not crash", () => {
     const action = ctorsUnion({});
     expect(action).toBeTruthy();
