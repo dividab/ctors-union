@@ -37,6 +37,8 @@ function Curry(one: string) {
 When you have many actions this code can take a lot of space. To shorten it you can use this library like this:
 
 ```ts
+import { ctorsUnion, CtorsUnion } from "ctors-union";
+
 const Action = ctorsUnion({
   Foo: (foo: string) => ({ foo }),
   Bar: (bar: number) => ({ bar }),
