@@ -13,7 +13,11 @@ npm install ctors-union --save
 To create a union type for use with for example Redux actions you can do this:
 
 ```ts
-type Action = Foo | Bar;
+type Action = Foo | Bar | Curry;
+
+type Foo = { type: "Foo"; foo: number };
+type Bar = { type: "Bar"; bar: string };
+type Curry = { type: "Curry"; one: string; two: number };
 
 function Foo(foo: number) {
   return { type: "Foo", foo };
