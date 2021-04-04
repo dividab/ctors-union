@@ -38,8 +38,8 @@ When you have many actions this code can take a lot of space. To shorten it you 
 
 ```ts
 const Action = ctorsUnion({
-  Foo: (olle: string) => ({ olle }),
-  Bar: (kalle: number) => ({ kalle }),
+  Foo: (foo: string) => ({ foo }),
+  Bar: (bar: number) => ({ bar }),
   Curry: (one: string) => (two: number) => ({ one, two }),
 });
 type Action = CtorsUnion<typeof Action>;
