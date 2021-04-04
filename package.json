@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "git@github.com:dividab/ctors-union.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dividab/ctors-union.git"
+  },
   "author": "Jonas Kello <jonas.kello@gmail.com>",
   "license": "MIT",
   "files": [
