@@ -1,6 +1,6 @@
 // These types are only used to satisfy the constraints needed for ReturnType<T> and Parameters<T>
 type RawMap = { readonly [key: string]: RawFn };
-type RawFn = (...args: readonly unknown[]) => any;
+type RawFn = (...args: readonly any[]) => any;
 
 // These types are for the constructors map
 type CtorsMap<T extends RawMap, TTypeKey extends string> = {
@@ -21,35 +21,27 @@ type FinalReturn<T> = T extends RawFn ? FinalReturn<ReturnType<T>> : T;
  * return other functions until an object is returned, then add type to that
  * object and return it.
  */
-const wrapIt = (typeKey: string, key: string, fn: RawFn) => (
-  ...args: unknown[]
-) => {
+const wrapIt = (typeKey: string, key: string, fn: RawFn) => (...args: unknown[]) => {
   const theReturn = fn(...args);
-  return typeof theReturn === "function"
-    ? wrapIt(typeKey, key, theReturn)
-    : { [typeKey]: key, ...theReturn };
+  return typeof theReturn === "function" ? wrapIt(typeKey, key, theReturn) : { [typeKey]: key, ...theReturn };
 };
 
 /**
  * Create a union type from an object with constructor functions.
  */
-export function ctorsUnionWithTypeKey<
-  T extends RawMap,
-  TTypeKey extends string
->(typeKey: TTypeKey, ctorsMap: T): CtorsMap<T, TTypeKey> {
+export function ctorsUnionWithTypeKey<T extends RawMap, TTypeKey extends string>(
+  typeKey: TTypeKey,
+  ctorsMap: T
+): CtorsMap<T, TTypeKey> {
   // Transform functions to add key as "type" property in constructed object
   const withType = Object.fromEntries(
-    Object.entries(ctorsMap).map(([key, value]) => [
-      key,
-      wrapIt(typeKey, key, value),
-    ])
+    Object.entries(ctorsMap).map(([key, value]) => [key, wrapIt(typeKey, key, value)])
   );
-  return withType as CtorsMap<T, TTypeKey>;
+  return (withType as unknown) as CtorsMap<T, TTypeKey>;
 }
 
 /**
  * Shortcut to use "type" as type-key
  */
-export const ctorsUnion = <T extends RawMap>(
-  ctorsMap: T
-): CtorsMap<T, "type"> => ctorsUnionWithTypeKey("type", ctorsMap);
+export const ctorsUnion = <T extends RawMap>(ctorsMap: T): CtorsMap<T, "type"> =>
+  ctorsUnionWithTypeKey("type", ctorsMap);
