@@ -14,6 +14,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "newLine": "LF",
+    "strict": true,
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -21,7 +22,6 @@
     "noImplicitThis": true,
     // "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
     "lib": ["esnext"]
   }
 }
